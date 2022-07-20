@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- <base href="/"> -->
+
+	<title>
+		Страница всех заметок
+	</title>
+	<meta name="description" content="Startup HTML template OptimizedHTML 5">
+	<meta property="og:description" content="Startup HTML template OptimizedHTML 5">
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="icon" href="images/favicon.png">
+	<meta property="og:image" content="images/dist/preview.jpg">
+
+	<link rel="stylesheet" href="css/app.min.css">
+
+</head>
+
+<body>
+
+	<header class="main-header">
+		<div class="container">
+			<ul class="main-menu">
+				<li class="main-menu__item">
+					<a href="#" class="main-menu__link">Заметки</a>
+				</li>
+			</ul>
+		</div>
+	</header>
+
+	<main>
+
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-4 d-flex flex-column align-items-center">
+
+			<h1 class="note-page__heading">
+				Создание заметки
+			</h1>
+
+			<form class="form" action="#" method="post">
+
+				<div class="form__inner-wrapper">
+					<label class="form__label" for="heading">Заголовок заметки</label>
+					<input type="text" name="heading" id="heading" placeholder="Глава №1">
+				</div>
+
+				<div class="form__inner-wrapper">
+					<label class="form__label" for="content">Содержание заметки</label>
+					<textarea name="content" id="content" cols="30" rows="10"
+						placeholder="Люблю грозу в начале мая..."></textarea>
+				</div>
+
+				<div class="form__inner-wrapper">
+					<label class="form__label" for="origin">Источник заметки</label>
+					<input type="text" name="origin" id="origin" placeholder="Книга “Пиши и сокращай”">
+				</div>
+
+				<div class="form__inner-wrapper">
+					<label class="form__label" for="project">Проект</label>
+					<select name="project" id="project">
+						<option value="1">Дипломная работа</option>
+						<option value="2">Курсовая работа</option>
+					</select>
+				</div>
+
+				<div class="form__inner-wrapper">
+					<label class="form__label" for="tags">Тэги</label>
+					<select multiple name="tags" id="tags">
+						<option value="1">Физика</option>
+						<option value="2">Химия</option>
+						<option value="3">Искусство</option>
+					</select>
+				</div>
+
+				<button class="form__button" type="submit">Создать заметку</button>
+
+			</form>
+
+		</div>
+	</div>
+</div>
+
+</main>
+
+<footer class="main-footer"></footer>
+
+<script src="js/app.min.js"></script>
+
+</body>
+
+</html>
