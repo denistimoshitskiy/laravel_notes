@@ -50,18 +50,24 @@ class NoteController extends Controller
     public function edit(Note $note)
     {
         $categories = Category::all();
-        return view('note.edit', compact('note', 'categories'));
+        $tags = Tag::all();
+        return view('note.edit', compact('note', 'categories', 'tags'));
     }
 
     public function update(Note $note)
     {
         $data= \request()->validate([
-            'title' => 'string',
-            'content' => 'string',
+            'title' => 'required|string',
+            'content' => 'required|string',
             'origin' => 'string',
             'category_id' => '',
+            'tags' => '',
         ]);
+        $tags = $data['tags'];
+        unset($data['tags']);
+
         $note->update($data);
+        $note->tags()->sync($tags);
         return redirect()->route('note.show', $note->id);
     }
 

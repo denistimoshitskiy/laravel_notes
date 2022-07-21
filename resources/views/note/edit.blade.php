@@ -25,7 +25,8 @@
 
                     <div class="form__inner-wrapper">
                         <label class="form__label" for="origin">Источник заметки</label>
-                        <input type="text" name="origin" id="origin" placeholder="Книга “Пиши и сокращай”" value="{{$note->origin}}">
+                        <input type="text" name="origin" id="origin" placeholder="Книга “Пиши и сокращай”"
+                               value="{{$note->origin}}">
                     </div>
 
                     <div class="form__inner-wrapper">
@@ -45,10 +46,19 @@
 
                     <div class="form__inner-wrapper">
                         <label class="form__label" for="tags">Тэги</label>
-                        <select multiple name="tags" id="tags">
-                            <option value="1">Физика</option>
-                            <option value="2">Химия</option>
-                            <option value="3">Искусство</option>
+                        <select multiple name="tags[]" id="tags">
+
+                            @foreach($tags as $tag)
+
+                                <option
+                                    @foreach($note->tags as $noteTag)
+                                        {{ $tag->id === $noteTag->id ? ' selected ' : '' }}
+                                    @endforeach
+
+                                    value="{{$tag->id}}">{{$tag->title}}</option>
+
+                            @endforeach
+
                         </select>
                     </div>
 

@@ -14,18 +14,31 @@
 
                     <div class="form__inner-wrapper">
                         <label class="form__label" for="title">Заголовок заметки</label>
-                        <input type="text" name="title" id="title" placeholder="Глава №1">
+                        <input value="{{old('title')}}" type="text" name="title" id="title" placeholder="Глава №1">
+
+                        @error('title')
+                        <p class="form__error-message">{{ $message }}</p>
+                        @enderror
+
                     </div>
 
                     <div class="form__inner-wrapper">
                         <label class="form__label" for="content">Содержание заметки</label>
                         <textarea name="content" id="content" cols="30" rows="10"
-                                  placeholder="Люблю грозу в начале мая..."></textarea>
+                                  placeholder="Люблю грозу в начале мая...">
+                            {{old('content')}}
+                        </textarea>
+                        @error('content')
+                        <p class="form__error-message">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="form__inner-wrapper">
                         <label class="form__label" for="origin">Источник заметки</label>
-                        <input type="text" name="origin" id="origin" placeholder="Книга “Пиши и сокращай”">
+                        <input value="{{old('origin')}}" type="text" name="origin" id="origin" placeholder="Книга “Пиши и сокращай”">
+                        @error('origin')
+                        <p class="form__error-message">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="form__inner-wrapper">
@@ -33,7 +46,11 @@
                         <select name="category_id" id="project">
 
                             @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{$category->title}}</option>
+                            <option
+
+                                {{ old('category_id') == $category->id ? ' selected' : '' }}
+
+                                value="{{$category->id}}">{{$category->title}}</option>
                             @endforeach
 
                         </select>
