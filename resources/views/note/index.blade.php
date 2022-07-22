@@ -36,6 +36,8 @@
             @endforeach
 
 
+
         </div>
+        {{ $notes->links() }}
     </div>
 @endsection
