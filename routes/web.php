@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'NoteController@index')->name('note.index');
-Route::get('/note/create', 'NoteController@create')->name('note.create');
-Route::post('/note', 'NoteController@store')->name('note.store');
-Route::get('/note/{note}', 'NoteController@show')->name('note.show');
-Route::get('/note/{note}/edit', 'NoteController@edit')->name('note.edit');
-Route::patch('/note/{note}', 'NoteController@update')->name('note.update');
-Route::delete('/note/{note}', 'NoteController@destroy')->name('note.delete');
+Route::group(['namespace' => 'Note'], function () {
+    Route::get('/', 'IndexController')->name('note.index');
+    Route::get('/note/create', 'CreateController')->name('note.create');
+    Route::post('/note', 'StoreController')->name('note.store');
+    Route::get('/note/{note}', 'ShowController')->name('note.show');
+    Route::get('/note/{note}/edit', 'EditController')->name('note.edit');
+    Route::patch('/note/{note}', 'UpdateController')->name('note.update');
+    Route::delete('/note/{note}', 'DestroyController')->name('note.delete');
+});
+
+

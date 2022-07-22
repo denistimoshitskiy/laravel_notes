@@ -15,18 +15,29 @@
                     <div class="form__inner-wrapper">
                         <label class="form__label" for="title">Заголовок заметки</label>
                         <input type="text" name="title" id="title" placeholder="Глава №1" value="{{$note->title}}">
+
+                        @error('title')
+                        <p class="form__error-message">{{ $message }}</p>
+                        @enderror
+
                     </div>
 
                     <div class="form__inner-wrapper">
                         <label class="form__label" for="content">Содержание заметки</label>
                         <textarea name="content" id="content" cols="30" rows="10"
                                   placeholder="Люблю грозу в начале мая...">{{$note->content}}"</textarea>
+                        @error('content')
+                        <p class="form__error-message">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="form__inner-wrapper">
                         <label class="form__label" for="origin">Источник заметки</label>
                         <input type="text" name="origin" id="origin" placeholder="Книга “Пиши и сокращай”"
                                value="{{$note->origin}}">
+                        @error('origin')
+                        <p class="form__error-message">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="form__inner-wrapper">
