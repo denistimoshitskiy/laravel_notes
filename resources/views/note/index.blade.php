@@ -5,7 +5,7 @@
 
             @foreach($notes as $note)
 
-            <div class="col-md-3">
+            <div class="col-xxl-3 col-lg-4 col-md-6 d-flex align-items-stretch">
                 <div class="note">
                     <a href="#" class="note__project">
                         Дипломная работа
@@ -38,6 +38,6 @@
 
 
         </div>
-        {{ $notes->links() }}
+        {{ $notes->withQueryString()->links() }}
     </div>
 @endsection
